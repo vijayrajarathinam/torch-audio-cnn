@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 
-
 class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, stride=1):
         super.__init__(self)
@@ -22,7 +21,6 @@ class ResidualBlock(nn.Module):
         out = self.conv1(x)
         out = self.bn1(out)
         out = torch.relu(out)
-
 
         # convolutional layer 2
         out = self.conv2(out)
