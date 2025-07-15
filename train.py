@@ -104,7 +104,7 @@ def training_loop():
                 'accuracy': accuracy,
                 'epoch': epoch,
                 'classes': train_dataset.classes
-            }, '/models/best_model.pth')
+            }, '/models/best_accuracy_model.pth')
             print(f"New best model saved: {accuracy:.2f}%")
 
     print(f"training completed.... best accuracy: {best_accuracy:.2f}%")

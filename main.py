@@ -16,12 +16,12 @@ image = (modal.Image.debian_slim()
          .pip_install_from_requirements("requirements.txt")  # python packages source file
          .apt_install(["wget", "unzip", "ffmpeg", "libsndfile1"])  # linux services to process audio
          .run_commands([
-    "cd /tmp && wget https://github.com/karolpiczak/ESC-50/archive/master.zip -0 esc50.zip"
-    "cd /tmp && unzip esc50.zip",
-    "mkdir -p /opt/esc50-data",
-    "cp -r /tmp/ESC-50-master/* /opt/esc50-data",
-    "rm -rf /tmp/esc50.zip /tmpESC-50-master"
-])  # startup script
+                "cd /tmp && wget https://github.com/karolpiczak/ESC-50/archive/master.zip -0 esc50.zip"
+                "cd /tmp && unzip esc50.zip",
+                "mkdir -p /opt/esc50-data",
+                "cp -r /tmp/ESC-50-master/* /opt/esc50-data",
+                "rm -rf /tmp/esc50.zip /tmpESC-50-master"
+         ])  # startup script
          .add_local_python_source("model")  # model.py
          )
 data_volume = modal.Volume.from_name("esc50-data", create_if_missing=True)  # for data storage
